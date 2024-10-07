@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    loadbalancer:
+      ribbon:
+        enables: false
+    gateway:
+      mvc:
+        routes:
+          - id: indicadores-ms
+            uri: lb://INDICADORES-MS
+            predicates:
+              - Path=/api/indicadores/**
+
